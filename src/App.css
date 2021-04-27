@@ -12,3 +12,34 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.main-container{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "search noms"
+  ;
+}
+
+.noms-container{
+  grid-area: noms;
+  justify-self: center;
+  border: 1px solid black;
+  width: 50%;
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.search-container{
+  grid-area: search;
+  justify-self: center;
+  border: 1px solid black;
+  width: 50%;
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.movie-poster{
+  height: 8rem;
+  width: 5rem;
+}

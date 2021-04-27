@@ -1,12 +1,23 @@
 import React from 'react';
+import MovieCard from './MovieCard';
+
 
 class SearchForm extends React.Component{
     state = {
-        userInput: ""
+        userInput: "",
+        movies: []
     };
     
-    componentDidMount(){
-        
+    fetchSearchResults = () => {
+        fetch(`http://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${this.state.userInput}`)
+        .then(response => response.json())
+        .then(movies => {
+            this.setState({
+                ...this.state,
+                movies: movies.Search
+            })
+        })
+        console.log(this.state.movies)
     }
 
     changeHandler = (evt) => {
@@ -14,20 +25,34 @@ class SearchForm extends React.Component{
             ...this.state,
             userInput: evt.target.value
         })
-        console.log(this.state);
+        
     }
 
     submitHandler = (e) => {
         e.preventDefault()
+        this.fetchSearchResults();
+    }
+
+    renderMovies = () => {
+        let movieResults = this.state.movies;
+        if(movieResults){
+            return(
+                movieResults.map(movie => < MovieCard {...movie}/>)
+            )
+        }
     }
 
     render(){
         return(
-            <div>
+            <div className="search-container">
                 <h3>Search Movies</h3>
                 <form onSubmit={this.submitHandler}>
                     <input name="userInput" onChange={this.changeHandler}></input>
+                    <button type="submit" onClick={this.fetchSearchResults}>Search</button>
                 </form>
+                <div className="movies-container">
+                    {this.renderMovies()}
+                </div>
             </div>
         )
     }
