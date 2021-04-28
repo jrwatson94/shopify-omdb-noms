@@ -37,7 +37,7 @@ class SearchForm extends React.Component{
         let movieResults = this.state.movies;
         if(movieResults){
             return(
-                movieResults.map(movie => < MovieCard {...movie}/>)
+                movieResults.map(movie => <MovieCard nomIDs={this.props.nomIDs} nominateMovie={this.props.nominateMovie} {...movie}/>)
             )
         }
     }
