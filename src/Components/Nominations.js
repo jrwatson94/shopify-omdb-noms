@@ -5,7 +5,9 @@ class Nominations extends React.Component {
     renderNoms = () => {
         if(this.props.noms){
             return (
-                this.props.noms.map(nom => <NominationCard removeNom = {this.props.removeNom} {...nom}/>)
+                <ul>
+                    {this.props.noms.map(nom => <li><NominationCard removeNom = {this.props.removeNom} {...nom}/></li>)}
+                </ul>
             )
         }
     }
@@ -13,6 +15,7 @@ class Nominations extends React.Component {
         return (
             <div className="noms-container">
                 <h3>Nominations</h3>
+                <hr></hr>
                 {this.renderNoms()}
             </div>
           );

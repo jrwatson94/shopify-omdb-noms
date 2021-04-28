@@ -1,3 +1,4 @@
+import Button from 'react-bootstrap/Button'
 
 function NominationCard(props) {
     const clickHandler = () => {
@@ -5,9 +6,11 @@ function NominationCard(props) {
     }
     return(
         <div>
-            <h5>{props.Title}({props.Year})</h5>
-            <img className="movie-poster"src={props.Poster}></img>
-            <button onClick={clickHandler}>Remove</button>
+            <p>{props.Title}({props.Year})
+            <span>      
+                <Button className="remove btn-danger"size="sm" onClick={clickHandler}>X</Button>
+            </span>
+            </p>
         </div>
     )
 }

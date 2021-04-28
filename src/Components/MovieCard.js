@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 function MovieCard(props) {
     const clickHandler =() => {
@@ -11,9 +12,9 @@ function MovieCard(props) {
     
     return (
       <div className="movie-card">
-          <h4>{props.Title}({props.Year})</h4>
-          <img className="movie-poster" src={props.Poster}></img>
-          <button disabled={isNominated()} onClick={clickHandler}>Nominate</button>
+          <p id="movie-title">{props.Title}({props.Year})</p>
+          <img id="movie-poster" src={props.Poster}></img>
+          <Button id="nom-btn" size="sm" disabled={isNominated()} onClick={clickHandler}>Nominate</Button>
       </div>
     );
   }

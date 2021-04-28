@@ -1,5 +1,16 @@
 .App {
+  display: flex;
+  justify-content: center;
   text-align: center;
+  height: 100vh;
+  background: rgb(70,184,167);
+  background: radial-gradient(
+    circle,
+    rgba(70,184,167,0.9) 0%,
+    rgba(55,80,219,0.9) 100%
+  );
+  font-family: 'Montserrat', sans-serif;
+  overflow: scroll;
 }
 
 .App-header {
@@ -14,33 +25,79 @@
 }
 .main-container{
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 60% 40%;
   grid-template-rows: auto;
   grid-template-areas: 
     "search noms"
   ;
+  background: white;
+  height: 70%;
+  width: 90%;
+  margin-top: 10%;
+  border-radius: 10px;
 }
 
 .noms-container{
   grid-area: noms;
   justify-self: center;
-  border: 1px solid black;
-  width: 50%;
+  width: 100%;
   margin: 2rem;
   padding: 2rem;
-  height: 18rem;
+  height: 25.5rem;
+  margin-bottom: 4rem;
+  background-color: rgb(190, 255, 170);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .search-container{
   grid-area: search;
   justify-self: center;
-  border: 1px solid black;
-  width: 80%;
+  width: 100%;
   margin: 2rem;
   padding: 2rem;
+  margin-bottom: 4rem;
+  background-color: rgb(209, 209, 209);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-.movie-poster{
-  height: 8rem;
-  width: 5rem;
+#search-header{
+  margin: 0px !important;
+}
+
+.movie-card{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "img title"
+    "img  button"
+
+  ;
+  background-color: rgb(180, 180, 180);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin-bottom: 2rem;
+
+}
+
+#movie-poster{
+  grid-area: img;
+  height: auto;
+  width: 100%;
+}
+#movie-title{
+  padding-top: 2rem;
+  grid-area: title;
+  justify-self: center;
+  font-weight: 800;
+}
+#nom-btn{
+  justify-self: center;
+  grid-area: button;
+  width: 40%;
+  height: 40%;
+  margin-top: 2rem;
+}
+
+.remove{
+  margin-left: 2rem;
 }

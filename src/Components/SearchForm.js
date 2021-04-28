@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieCard from './MovieCard';
+import Form from 'react-bootstrap/Form'
 
 
 class SearchForm extends React.Component{
@@ -43,11 +44,14 @@ class SearchForm extends React.Component{
     render(){
         return(
             <div className="search-container">
-                <h3>Search Movies</h3>
-                <form onSubmit={this.submitHandler}>
-                    <input name="userInput" onChange={this.changeHandler}></input>
-                    <button type="submit" onClick={this.fetchSearchResults}>Search</button>
-                </form>
+                <h2 id="search-header">OMDB Search</h2>
+                <hr></hr>
+                <Form onSubmit={this.submitHandler}>
+                    <Form.Group>
+                        <Form.Control size="md" type="search" name="userInput" onChange={this.changeHandler} placeholder="Search movies..."></Form.Control>
+                    </Form.Group>
+                    {/* <button type="submit" onClick={this.fetchSearchResults}>Search</button> */}
+                </Form>
                 <div className="movies-container">
                     {this.renderMovies()}
                 </div>

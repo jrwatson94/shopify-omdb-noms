@@ -19,7 +19,6 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <h1>Nominate Your Favorite Movies!</h1>
         <div className="main-container">
           <SearchForm nominateMovie={this.nominateMovie} noms ={this.state.noms}/>
           <Nominations removeNom = {this.removeNom} noms={this.state.noms}/>
