@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieCard from './MovieCard';
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 
 class SearchForm extends React.Component{
@@ -49,9 +50,12 @@ class SearchForm extends React.Component{
                 <Form onSubmit={this.submitHandler}>
                     <Form.Group>
                         <Form.Control size="md" type="search" name="userInput" onChange={this.changeHandler} placeholder="Search movies..."></Form.Control>
+                        <Button id="submit-btn" type="submit" onClick={this.fetchSearchResults}>Search</Button>
                     </Form.Group>
-                    {/* <button type="submit" onClick={this.fetchSearchResults}>Search</button> */}
                 </Form>
+                <strong>
+                    <u><p>Please nominate up to 5 movies</p></u>
+                </strong>
                 <div className="movies-container">
                     {this.renderMovies()}
                 </div>

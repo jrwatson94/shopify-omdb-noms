@@ -7,7 +7,11 @@ function MovieCard(props) {
     }
     const isNominated = () => {
         const isMovieNominated = props.noms.filter(item => item.imdbID === props.imdbID)
-        return isMovieNominated.length > 0 ? true : false;
+        if(isMovieNominated.length > 0 || props.noms.length >= 5){
+            return true;
+        }else{
+            return false;
+        }
     }
     
     return (
