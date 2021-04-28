@@ -2,17 +2,13 @@ import React from 'react';
 
 function MovieCard(props) {
     const clickHandler =() => {
-        console.log("running")
-        props.nominateMovie(props,props.imdbID)
+        props.nominateMovie(props)
     }
     const isNominated = () => {
-        console.log(props.nomIDs)
-        if(props.nomIDs.includes(props.imdbID)){
-            return true
-        }else{
-            return false;
-        }
+        const isMovieNominated = props.noms.filter(item => item.imdbID === props.imdbID)
+        return isMovieNominated.length > 0 ? true : false;
     }
+    
     return (
       <div className="movie-card">
           <h4>{props.Title}({props.Year})</h4>

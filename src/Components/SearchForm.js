@@ -17,7 +17,6 @@ class SearchForm extends React.Component{
                 movies: movies.Search
             })
         })
-        console.log(this.state.movies)
     }
 
     changeHandler = (evt) => {
@@ -25,7 +24,6 @@ class SearchForm extends React.Component{
             ...this.state,
             userInput: evt.target.value
         })
-        
     }
 
     submitHandler = (e) => {
@@ -37,7 +35,7 @@ class SearchForm extends React.Component{
         let movieResults = this.state.movies;
         if(movieResults){
             return(
-                movieResults.map(movie => <MovieCard nomIDs={this.props.nomIDs} nominateMovie={this.props.nominateMovie} {...movie}/>)
+                movieResults.map(movie => <MovieCard noms={this.props.noms} nominateMovie={this.props.nominateMovie} {...movie}/>)
             )
         }
     }

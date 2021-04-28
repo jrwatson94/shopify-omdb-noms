@@ -3,10 +3,9 @@ import NominationCard from './NominationCard'
 
 class Nominations extends React.Component {
     renderNoms = () => {
-        let nominations = this.props.nominatedMovies;
-        if(nominations){
+        if(this.props.noms){
             return (
-                nominations.map(nom => <NominationCard {...nom}/>)
+                this.props.noms.map(nom => <NominationCard removeNom = {this.props.removeNom} {...nom}/>)
             )
         }
     }
