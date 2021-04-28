@@ -54,7 +54,7 @@ class SearchForm extends React.Component{
                     </Form.Group>
                 </Form>
                 <strong>
-                    <u><p>Please nominate up to 5 movies</p></u>
+                    <u><h5>Please nominate up to 5 movies</h5></u>
                 </strong>
                 <div className="movies-container">
                     {this.renderMovies()}
